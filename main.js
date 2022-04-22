@@ -44,7 +44,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 //Main models
 const loader = new GLTFLoader();
 let floatingIsland;
-loader.load('assets/mystic_stones_of_the_sky/scene.gltf', function(gltf) {
+loader.load('mystic_stones_of_the_sky/scene.gltf', function(gltf) {
 
     floatingIsland = gltf.scene
     scene.add(floatingIsland);
