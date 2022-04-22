@@ -1,3 +1,0 @@
-function loadGltgModels(path) {
-
-}
