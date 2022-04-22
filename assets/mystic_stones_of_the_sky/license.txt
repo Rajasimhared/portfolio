@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mystic stones of the Sky
+* source:	https://sketchfab.com/3d-models/mystic-stones-of-the-sky-a3f798c9f9b74f16a1a700233400329a
+* author:	MadSpace (https://sketchfab.com/MadSpace)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mystic stones of the Sky" (https://sketchfab.com/3d-models/mystic-stones-of-the-sky-a3f798c9f9b74f16a1a700233400329a) by MadSpace (https://sketchfab.com/MadSpace) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

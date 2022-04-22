@@ -1,0 +1,45 @@
+body {
+    background-color: #effffd;
+    margin: 0;
+    font-family: "Merriweather", serif;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+    font-family: "Sacramento", cursive;
+    font-size: 4rem;
+}
+
+h2,
+h3 {
+    font-family: "Work Sans", sans-serif;
+}
+
+.info {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    display: block;
+}
+
+.header {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+
+.profile-pic {
+    border-radius: 50%;
+}
+
+p {
+    position: relative;
+    z-index: 2;
+}
+
+/*# sourceMappingURL=/portfolio.9ad09f98.css.map */
