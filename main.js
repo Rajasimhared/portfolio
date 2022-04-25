@@ -15,9 +15,9 @@ const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerH
 camera.position.setZ(100);
 
 //Light
-// const ambientLight = new THREE.AmbientLight(0xFF0000);
-// ambientLight.intensity = 1;
-// scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight(0xFFFFFF);
+ambientLight.intensity = 1;
+scene.add(ambientLight);
 
 const spotLight = new THREE.SpotLight(0xffffff, 2, 200, 0.4472);
 spotLight.position.set(10, 10, 100);
@@ -40,22 +40,27 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
+// Orbit Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.minPolarAngle = 0; // radians
+controls.maxPolarAngle = Math.PI; // radians
+controls.enableZoom = false;
+controls.minPolarAngle = 0;
+controls.maxPolarAngle = Math.PI;
 
 //Main models
 const loader = new GLTFLoader();
-let floatingIsland;
-loader.load('mystic_stones_of_the_sky/scene.gltf', function(gltf) {
-
-    floatingIsland = gltf.scene
+let floatingIsland, arrow;
+loadModel('mystic_stones_of_the_sky/scene.gltf').then(model => {
+    floatingIsland = model;
     scene.add(floatingIsland);
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.minPolarAngle = 0; // radians
-    controls.maxPolarAngle = Math.PI; // radians
-    controls.enableZoom = false;
-
-}, undefined, function(error) {
-    console.error('model load error', error);
+});
+loadModel('jumpboost_arrow/scene.gltf').then(model => {
+    arrow = model;
+    arrow.scale.set(0.1, 0.1, 0.1)
+    arrow.position.set(0, -25, 0);
+    arrow.rotation.set(Math.PI, -1, 0)
+    scene.add(arrow);
 });
 
 
@@ -90,22 +95,36 @@ Array(20).fill().map(() => createMeshRandomAndRotate(sphereGeometry, whiteBasicM
 Array(10).fill().map(() => createMeshRandomAndRotate(torusGeometry, whiteBasicMaterial));
 
 //Animation
+
 const animate = () => {
 
     requestAnimationFrame(animate);
     floatingIsland && (floatingIsland.rotation.y += 0.01);
+    // animateArrow();
     renderer.render(scene, camera);
-
 }
 
 animate();
 
+
 const moveCamera = () => {
     const getTop = document.body.getBoundingClientRect().top;
-    console.log(getTop);
     camera.position.z = getTop * 0.008 + 100;
     camera.position.y = getTop * 0.008;
     camera.rotation.x = getTop * 0.00095;
 }
 
 document.body.onscroll = moveCamera;
+
+
+function loadModel(path) {
+    return new Promise((resolve, reject) => {
+        loader.load(path, function(gltf) {
+            resolve(gltf.scene);
+        }, undefined, function(error) {
+            console.error('model load error', error);
+            reject();
+        });
+    })
+
+}
