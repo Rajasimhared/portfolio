@@ -48,20 +48,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 
 // Audio
 
-const listener = new THREE.AudioListener();
-camera.add(listener);
 
-// create a global audio source
-const sound = new THREE.Audio(listener);
-
-// load a sound and set it as the Audio object's buffer
-const audioLoader = new THREE.AudioLoader();
-audioLoader.load('music.mp3', function(buffer) {
-    sound.setBuffer(buffer);
-    sound.setLoop(true);
-    sound.setVolume(1);
-    sound.play();
-});
 
 // Orbit Controls
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -159,3 +146,27 @@ function loadModel(path) {
     })
 
 }
+
+function playAudio(e) {
+    const listener = new THREE.AudioListener();
+    camera.add(listener);
+
+    // create a global audio source
+    const sound = new THREE.Audio(listener);
+
+    // load a sound and set it as the Audio object's buffer
+    const audioLoader = new THREE.AudioLoader();
+    audioLoader.load('/music.mp3', function(buffer) {
+            console.log(sound)
+            sound.setBuffer(buffer);
+            sound.setLoop(true);
+            sound.setVolume(1);
+            sound.play();
+        }, undefined,
+        function(error) {
+            console.error('model load error', error);
+        });
+    console.log(sound.play)
+}
+
+window.playAudio = playAudio;
