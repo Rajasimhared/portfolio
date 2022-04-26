@@ -12,7 +12,12 @@ scene.background = new THREE.Color(0x90AACB);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.5, 1000);
-camera.position.setZ(100);
+
+var clock = new THREE.Clock();
+var angle = 0;
+var angularSpeed = THREE.Math.degToRad(20);
+var delta = 0;
+var radius = 80;
 
 //Light
 const ambientLight = new THREE.AmbientLight(0xFFFFFF);
@@ -35,10 +40,28 @@ scene.add(pointLight2);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#main-content')
+    canvas: document.querySelector('#main-content'),
+    antialias: true
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
+
+// Audio
+
+const listener = new THREE.AudioListener();
+camera.add(listener);
+
+// create a global audio source
+const sound = new THREE.Audio(listener);
+
+// load a sound and set it as the Audio object's buffer
+const audioLoader = new THREE.AudioLoader();
+audioLoader.load('music.mp3', function(buffer) {
+    sound.setBuffer(buffer);
+    sound.setLoop(true);
+    sound.setVolume(1);
+    sound.play();
+});
 
 // Orbit Controls
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -50,30 +73,24 @@ controls.maxPolarAngle = Math.PI;
 
 //Main models
 const loader = new GLTFLoader();
-let floatingIsland, arrow;
+let floatingIsland;
 loadModel('mystic_stones_of_the_sky/scene.gltf').then(model => {
     floatingIsland = model;
     scene.add(floatingIsland);
 });
-loadModel('jumpboost_arrow/scene.gltf').then(model => {
-    arrow = model;
-    arrow.scale.set(0.1, 0.1, 0.1)
-    arrow.position.set(0, -25, 0);
-    arrow.rotation.set(Math.PI, -1, 0)
-    scene.add(arrow);
-});
-
 
 // Geometries
+
 const crystalGeometry = new THREE.OctahedronGeometry(6, 0);
-const whiteBasicMaterial = new THREE.MeshStandardMaterial({
-    color: 0xFFFFFF,
-    metalness: 0.5,
-    roughness: 0.5,
-    shininess: 0.5,
-    transparent: true,
-    opacity: 0.8
-});
+// const whiteBasicMaterial = new THREE.MeshStandardMaterial({
+//     color: 0xFFFFFF,
+//     metalness: 0.5,
+//     roughness: 0.5,
+//     shininess: 0.5,
+//     transparent: true,
+//     opacity: 0.8
+// });
+const whiteBasicMaterial = new THREE.MeshNormalMaterial();
 
 const sphereGeometry = new THREE.SphereGeometry(6, 32, 16);
 const torusGeometry = new THREE.TorusGeometry(4, 1, 16, 60);
@@ -90,32 +107,46 @@ const createMeshRandomAndRotate = (geometry, material) => {
     scene.add(mesh);
 }
 
-Array(20).fill().map(() => createMeshRandomAndRotate(crystalGeometry, whiteBasicMaterial));
-Array(20).fill().map(() => createMeshRandomAndRotate(sphereGeometry, whiteBasicMaterial));
-Array(10).fill().map(() => createMeshRandomAndRotate(torusGeometry, whiteBasicMaterial));
+Array(30).fill().map(() => createMeshRandomAndRotate(crystalGeometry, whiteBasicMaterial));
+Array(30).fill().map(() => createMeshRandomAndRotate(sphereGeometry, whiteBasicMaterial));
+Array(30).fill().map(() => createMeshRandomAndRotate(torusGeometry, whiteBasicMaterial));
 
 //Animation
 
 const animate = () => {
-
     requestAnimationFrame(animate);
-    floatingIsland && (floatingIsland.rotation.y += 0.01);
-    // animateArrow();
+    // floatingIsland && (floatingIsland.rotation.y += 0.01);
+    // camera.position.x += 0.1;
+    delta = clock.getDelta();
+    camera.position.x = Math.cos(angle) * radius;
+    camera.position.z = Math.sin(angle) * radius + 40;
+    angle += angularSpeed * delta;
+    camera.lookAt(floatingIsland ? floatingIsland.position : new THREE.Vector3(0, 0, 0));
     renderer.render(scene, camera);
 }
 
 animate();
 
+// const moveCamera = () => {
+//     const getTop = document.body.getBoundingClientRect().top;
+//     camera.position.z = getTop * 0.008 + 100;
+//     camera.position.y = getTop * 0.008;
+//     camera.rotation.x = getTop * 0.00095;
+// }
 
-const moveCamera = () => {
-    const getTop = document.body.getBoundingClientRect().top;
-    camera.position.z = getTop * 0.008 + 100;
-    camera.position.y = getTop * 0.008;
-    camera.rotation.x = getTop * 0.00095;
+// document.body.onscroll = moveCamera;
+
+// Resize event
+
+window.addEventListener('resize', onWindowResize, true);
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.render(scene, camera);
 }
-
-document.body.onscroll = moveCamera;
-
 
 function loadModel(path) {
     return new Promise((resolve, reject) => {
