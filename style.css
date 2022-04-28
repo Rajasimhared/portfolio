@@ -25,7 +25,7 @@ main {
     margin-left: auto;
     margin-right: auto;
     top: 100vh;
-    width: 60%;
+    width: 80%;
     text-align: center;
     z-index: 100;
     display: block;
@@ -43,6 +43,7 @@ header {
 
 .profile-pic {
     border-radius: 50%;
+    margin-bottom: 2rem;
 }
 
 p {
@@ -299,14 +300,16 @@ body #timeline-wrapper .timeline-block .event .event-body {
     background-color: #fff;
     min-height: 100px;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 2rem;
     width: 90%;
     position: relative;
     border: 1px solid #eee;
 }
 
 body #timeline-wrapper .timeline-block .event .event-body .person-image {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
     text-align: left;
     width: 30%;
     height: 100%;
@@ -409,4 +412,11 @@ body .social .follow {
     to {
         color: #111;
     }
+}
+
+.wrapper-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    border: 1px solid #eee;
 }
