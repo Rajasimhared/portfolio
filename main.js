@@ -8,7 +8,8 @@ import {
 } from 'three/examples/jsm/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x90AACB);
+// scene.background = new THREE.Color(0x90AACB);
+scene.background = new THREE.Color(0x91d1ff);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.5, 1000);
@@ -85,7 +86,7 @@ const torusGeometry = new THREE.TorusGeometry(4, 1, 16, 60);
 const createMeshRandomAndRotate = (geometry, material) => {
     const mesh = new THREE.Mesh(geometry, material);
 
-    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(200));
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(300));
     mesh.position.set(x, y, z);
 
     const [rx, ry, rz] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(1));
@@ -94,9 +95,9 @@ const createMeshRandomAndRotate = (geometry, material) => {
     scene.add(mesh);
 }
 
-Array(30).fill().map(() => createMeshRandomAndRotate(crystalGeometry, whiteBasicMaterial));
-Array(30).fill().map(() => createMeshRandomAndRotate(sphereGeometry, whiteBasicMaterial));
-Array(30).fill().map(() => createMeshRandomAndRotate(torusGeometry, whiteBasicMaterial));
+Array(100).fill().map(() => createMeshRandomAndRotate(crystalGeometry, whiteBasicMaterial));
+Array(100).fill().map(() => createMeshRandomAndRotate(sphereGeometry, whiteBasicMaterial));
+Array(100).fill().map(() => createMeshRandomAndRotate(torusGeometry, whiteBasicMaterial));
 
 //Animation
 
@@ -113,15 +114,6 @@ const animate = () => {
 }
 
 animate();
-
-// const moveCamera = () => {
-//     const getTop = document.body.getBoundingClientRect().top;
-//     camera.position.z = getTop * 0.008 + 100;
-//     camera.position.y = getTop * 0.008;
-//     camera.rotation.x = getTop * 0.00095;
-// }
-
-// document.body.onscroll = moveCamera;
 
 // Resize event
 
@@ -147,7 +139,13 @@ function loadModel(path) {
 
 }
 
-function playAudio(e) {
+let preloader = document.querySelector('.preloader');
+preloader.onclick = enterExperience;
+
+function enterExperience(e) {
+
+    e.target.style.display = 'none'
+    document.getElementsByTagName('main')[0].style.display = 'block'
     const listener = new THREE.AudioListener();
     camera.add(listener);
 
@@ -166,7 +164,4 @@ function playAudio(e) {
         function(error) {
             console.error('model load error', error);
         });
-    console.log(sound.play)
 }
-
-window.playAudio = playAudio;
