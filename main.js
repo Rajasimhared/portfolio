@@ -6,7 +6,10 @@ import {
 import {
     OrbitControls
 } from 'three/examples/jsm/controls/OrbitControls.js';
+import './AnimationControls';
 
+let animationId;
+let audio;
 const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0x90AACB);
 scene.background = new THREE.Color(0x91d1ff);
@@ -46,10 +49,6 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
-
-// Audio
-
-
 
 // Orbit Controls
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -102,7 +101,7 @@ Array(100).fill().map(() => createMeshRandomAndRotate(torusGeometry, whiteBasicM
 //Animation
 
 const animate = () => {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
     // floatingIsland && (floatingIsland.rotation.y += 0.01);
     // camera.position.x += 0.1;
     delta = clock.getDelta();
@@ -129,9 +128,9 @@ function onWindowResize() {
 
 function loadModel(path) {
     return new Promise((resolve, reject) => {
-        loader.load(path, function(gltf) {
+        loader.load(path, function (gltf) {
             resolve(gltf.scene);
-        }, undefined, function(error) {
+        }, undefined, function (error) {
             console.error('model load error', error);
             reject();
         });
@@ -145,23 +144,37 @@ preloader.onclick = enterExperience;
 function enterExperience(e) {
 
     e.target.style.display = 'none'
-    document.getElementsByTagName('main')[0].style.display = 'block'
-    const listener = new THREE.AudioListener();
-    camera.add(listener);
+    document.getElementsByTagName('main')[0].style.display = 'block';
 
-    // create a global audio source
-    const sound = new THREE.Audio(listener);
+    audio = new Audio('./music.mp3');
+    audio.play();
+    audio.loop = true;
 
-    // load a sound and set it as the Audio object's buffer
-    const audioLoader = new THREE.AudioLoader();
-    audioLoader.load('/music.mp3', function(buffer) {
-            console.log(sound)
-            sound.setBuffer(buffer);
-            sound.setLoop(true);
-            sound.setVolume(1);
-            sound.play();
-        }, undefined,
-        function(error) {
-            console.error('model load error', error);
+    setTimeout(() => {
+        let header = document.querySelector('main');
+        header.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
         });
+        toggleAnimation();
+        loadCustomElement('animation-controls');
+    }, 5000);
 }
+
+const toggleAnimation = () => animationId ? (cancelAnimationFrame(animationId),
+    animationId = null) : animate();
+
+const toggleAudio = () => audio.paused ? audio.play() : audio.pause();
+
+// Used to load any defined custom html element. Takes two params name, container to query upon
+function loadCustomElement(name, attributes, container = document.body) {
+    const game = document.createElement(name);
+    attributes?.forEach(attribute => {
+        game.setAttribute(attribute.key, attribute.value);
+    })
+    container.appendChild(game);
+}
+
+// Event Listners
+document.addEventListener('animate', () => toggleAnimation());
+document.addEventListener('audio', () => toggleAudio())

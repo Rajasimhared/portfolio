@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.ico" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
     <title>Rajasimha Reddy</title>
 </head>
 
@@ -16,13 +17,13 @@
     </div>
     <canvas id="main-content"></canvas>
     <div class="arrows"></div>
-    <main style="display:none">
+    <main style="display:none" class="container">
         <header>
             <img src="/Rajasimha_Reddy.jpg" width="200px" heigth="200px" class="profile-pic" />
             <h1> I'm Rajasimha Reddy</h1>
             <h2>a web developer</h2>
         </header>
-        <section id="timeline-wrapper">
+        <section id="experience-timeline">
             <h2> <i class="fa fa-briefcase" style="font-size:32px;padding-right:1rem"></i>Work Experience</h2>
             <div class="container-fluid">
                 <div class="row">
@@ -36,7 +37,8 @@
                             <div class="event l-event col-md-6 col-sm-6 col-xs-8 ">
                                 <!-- <span class="thumb fa fa-codepen"></span> -->
                                 <div class=" event-body">
-                                    <div class="person-image pull-left "> <img src="salesforce-logo.svg" alt="Salesforce" style="width:75%" />
+                                    <div class="person-image pull-left "> <img src="salesforce-logo.svg"
+                                            alt="Salesforce" style="width:75%" />
                                     </div>
                                     <div class="event-content">
                                         <h5 class="text-primary text-left">Senior Technical Consultant </h5>
@@ -45,26 +47,42 @@
                                         <br><br>
                                         <div>
                                             <ul>
-
                                                 <li>
-                                                    Built multiple anonymous user flow where user can choose and configure telecom offers, this was part of digital transformation for the telecom company’s [link1][link2] [link3].
+                                                    Built multiple anonymous user flow where user can choose and
+                                                    configure telecom offers, this was part of digital transformation
+                                                    for the telecom company’s [
+                                                    <a href="https://m1-heroku.herokuapp.com/"
+                                                        target="_blank">link1</a>] [
+                                                    <a href="https://bt-nextgen-buy.herokuapp.com/"
+                                                        target="_blank">link2</a>] [ <a
+                                                        href="https://order-tracker.surge.sh/"
+                                                        target="_blank">link3</a>].
                                                 </li>
                                                 <li>
-                                                    Bootstrapped project using web components, webpack to make it work off the salesforce platform, since the OOTB solutions work only on salesforce platform.
+                                                    Bootstrapped project using web components, webpack to make it work
+                                                    off the salesforce platform, since the OOTB solutions work only on
+                                                    salesforce platform.
                                                 </li>
                                                 <li>
-                                                    Built connected apps with JWT OAuth2.0 nodejs(cluster) server architecture which can handle thousands of requests to authenticate salesforce endpoints
+                                                    Built connected apps with JWT OAuth2.0 nodejs(cluster) server
+                                                    architecture which can handle thousands of requests to authenticate
+                                                    salesforce endpoints
                                                 </li>
                                                 <li>
-                                                    Performance optimizations on VWC using webpack bundler which reduced bundle size by 300%, project build takes 6 sec from 120 sec earlier, performance improved by 100%
+                                                    Performance optimizations on VWC using webpack bundler which reduced
+                                                    bundle size by 300%, project build takes 6 sec from 120 sec earlier,
+                                                    performance improved by 100%
                                                 </li>
                                                 <li>
-                                                    Created custom web components from scratch which were later used across many projects, as there were no OOTB components for the designs.
+                                                    Created custom web components from scratch which were later used
+                                                    across many projects, as there were no OOTB components for the
+                                                    designs.
                                                 </li>
                                                 <li>
                                                     Active member of POC team
                                                 </li>
-                                                <li>Used Polymerjs, lit-element, web components , nodejs, expressjs, lwc.
+                                                <li>Used Polymerjs, lit-element, web components , nodejs, expressjs,
+                                                    lwc.
                                                 </li>
                                             </ul>
                                         </div>
@@ -78,7 +96,8 @@
                             <div class="event r-event col-md-6 col-sm-6 col-xs-8 ">
                                 <!-- <span class="thumb fa fa-facebook"></span> -->
                                 <div class=" event-body">
-                                    <div class="person-image pull-left "><img src="youplus-logo.svg" alt="Youplus" style="padding:2rem 0" />
+                                    <div class="person-image pull-left "><img src="youplus-logo.svg" alt="Youplus"
+                                            style="padding:2rem 0" />
                                     </div>
                                     <div class="event-content">
                                         <h5 class="text-primary text-left">Software Development Engineer </h5>
@@ -87,19 +106,30 @@
                                         <br><br>
                                         <div>
                                             <ul>
-
                                                 <li>
-                                                    VIEW Configuration Portal: Youplus is the world’s first Video Opinion Search Engine. These video opinions combined are put up on a webpage as a widget. Built this portal end to end where client can order videos (review & ads), theme widget, make live/pause.
-                                                    New flow made easy to manage thousands of pages instead of tens previously.
+                                                    VIEW Configuration Portal: Youplus is the world’s first Video
+                                                    Opinion Search Engine. These video opinions combined are put up on a
+                                                    webpage as a widget. Built this portal end to end where client can
+                                                    order videos (review & ads), theme widget, make live/pause.
+                                                    New flow made easy to manage thousands of pages instead of tens
+                                                    previously.
                                                 </li>
                                                 <li>
-                                                    Optimizations: Since widgets used common modules, I designed & implemented a process to share common modules across projects using bit.dev. Reduced bundle size by 50% & every widget is in the range of 50KB - 120KB. </li>
+                                                    Optimizations: Since widgets used common modules, I designed &
+                                                    implemented a process to share common modules across projects using
+                                                    bit.dev. Reduced bundle size by 50% & every widget is in the range
+                                                    of 50KB - 120KB. </li>
                                                 <li>
-                                                    Analytics: Created in-house analytics for widgets by creating a HOC to track user interactions like play, pause, clicks etc. </li>
+                                                    Analytics: Created in-house analytics for widgets by creating a HOC
+                                                    to track user interactions like play, pause, clicks etc. </li>
                                                 <li>
-                                                    Operation Portal: Internal portal used to manually correct results generated by AI. Developed flows which had a major impact on improving accuracy of models as the corrected data is given as feedback to models. </li>
+                                                    Operation Portal: Internal portal used to manually correct results
+                                                    generated by AI. Developed flows which had a major impact on
+                                                    improving accuracy of models as the corrected data is given as
+                                                    feedback to models. </li>
                                                 <li>
-                                                    Member of SWAT team where POC’s for new ideas need to be delivered quickly. </li>
+                                                    Member of SWAT team where POC’s for new ideas need to be delivered
+                                                    quickly. </li>
                                                 <li>
                                                     Excellence award for the month Oct 2018.
                                                 </li>
@@ -117,23 +147,27 @@
                             <div class="event l-event col-md-6 col-sm-6 col-xs-8 ">
                                 <!-- <span class="thumb fa fa-facebook"></span> -->
                                 <div class=" event-body">
-                                    <div class="person-image pull-left "><img src="scapic-logo.svg" alt="Scapic" style="padding:2rem 0" />
+                                    <div class="person-image pull-left "><img src="scapic-logo.svg" alt="Scapic"
+                                            style="padding:2rem 0" />
                                     </div>
                                     <div class="event-content">
                                         <h5 class="text-primary text-left">Frontend Intern</h5>
-                                        <span class="text-muted text-left" style="display:block; margin: 0"><small>January
+                                        <span class="text-muted text-left"
+                                            style="display:block; margin: 0"><small>January
                                                 2018 - May 2018</small></span>
                                         <br><br>
                                         <div>
                                             <ul>
-
                                                 <li>
-                                                    Built Virtual Reality experiences for businesses like Walmart, Myntra, Puma [link] using React A-frame
+                                                    Built Virtual Reality experiences for businesses like Walmart,
+                                                    Myntra, Puma [link] using React A-frame
                                                 </li>
                                                 <li>
-                                                    Developed login screen, forgot password flow, error handler for all login options. </li>
+                                                    Developed login screen, forgot password flow, error handler for all
+                                                    login options. </li>
                                                 <li>
-                                                    eveloped end-to-end au- tomation tests for the tool using cypress which helped in catching regression bugs for the devs. [link] </li>
+                                                    eveloped end-to-end au- tomation tests for the tool using cypress
+                                                    which helped in catching regression bugs for the devs. [link] </li>
 
                                             </ul>
                                         </div>
@@ -157,12 +191,15 @@
                                         <br><br><br>
                                         <div>
                                             <ul>
-
                                                 <li>
-                                                    Chosen to be the student for Undergraduate Summer School hosted by the Department of Computer Science and Automation, IISc during July 2017.
+                                                    Chosen to be the student for Undergraduate Summer School hosted by
+                                                    the Department of Computer Science and Automation, IISc during July
+                                                    2017.
                                                 </li>
                                                 <li>
-                                                    I was exposed to several contemporary research work going on in & around IISc and of course world in the field of Machine Learning, AI, NLP, Probability, Theory of Computation and various others.
+                                                    I was exposed to several contemporary research work going on in &
+                                                    around IISc and of course world in the field of Machine Learning,
+                                                    AI, NLP, Probability, Theory of Computation and various others.
                                                 </li>
                                                 <li>
                                                     I also won a prize in the quiz on the final day. </li>
@@ -183,10 +220,9 @@
         </section>
         <br />
         <hr />
-
-        <section>
+        <section id="skills">
             <h2><i class="fa fa-cogs" style="font-size:32px;padding-right:1rem"></i>Skills</h2>
-            <div class="container wrapper-container">
+            <div class=" wrapper-container">
                 <div class="journal-block">
                     <div class="row ">
                         <div class="col-lg-3 col-md-6 ">
@@ -201,6 +237,7 @@
                                     <ul style="font-size: large;">
                                         <li>HTML5, CSS3</li>
                                         <li>JavaScript</li>
+                                        <li>Web components</li>
                                         <li>React.js</li>
                                         <li>Next.js</li>
                                         <li>Lit</li>
@@ -327,9 +364,9 @@
             </div>
         </section>
         <hr />
-        <section>
+        <section id="education">
             <h2><i class="fa fa-graduation-cap" style="font-size:32px;padding-right:1rem"></i>Education</h2>
-            <div class="container wrapper-container">
+            <div class=" wrapper-container">
                 <h3> <a href="https://nie.ac.in/" target="_blank">The National Institute of Engineering, Mysuru, India
                     </a></h3>
                 Bachelor of <b>Engineering in Computer Science</b> CGPA: 8.59/10 Aug 2014 - May 2018
@@ -340,9 +377,10 @@
             </div>
         </section>
         <hr />
-        <section>
-            <h2><i class="fa fa-github" style="font-size:32px;padding-right:1rem"></i>Projects</h2>
-            <div class="container wrapper-container">
+        <section id="projects">
+            <h2><i class="fa-brands fa-github" style="font-size:32px;padding-right:1rem"></i>Projects
+            </h2>
+            <div class=" wrapper-container">
 
 
             </div>
