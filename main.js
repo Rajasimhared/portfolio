@@ -8,13 +8,16 @@ import {
 } from 'three/examples/jsm/controls/OrbitControls.js';
 import './AnimationControls';
 
+// Used to play/pause using controls in UI
+
 let animationId;
 let audio;
+
 const scene = new THREE.Scene();
-// scene.background = new THREE.Color(0x90AACB);
 scene.background = new THREE.Color(0x91d1ff);
 
 // Camera
+
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.5, 1000);
 
 var clock = new THREE.Clock();
@@ -23,7 +26,8 @@ var angularSpeed = THREE.Math.degToRad(20);
 var delta = 0;
 var radius = 80;
 
-//Light
+// Light
+
 const ambientLight = new THREE.AmbientLight(0xFFFFFF);
 ambientLight.intensity = 1;
 scene.add(ambientLight);
@@ -43,6 +47,7 @@ pointLight2.intensity = 1;
 scene.add(pointLight2);
 
 // Renderer
+
 const renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('#main-content'),
     antialias: true
@@ -51,6 +56,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 // Orbit Controls
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.minPolarAngle = 0; // radians
 controls.maxPolarAngle = Math.PI; // radians
@@ -58,7 +64,8 @@ controls.enableZoom = false;
 controls.minPolarAngle = 0;
 controls.maxPolarAngle = Math.PI;
 
-//Main models
+// Main models
+
 const loader = new GLTFLoader();
 let floatingIsland;
 loadModel('mystic_stones_of_the_sky/scene.gltf').then(model => {
@@ -114,7 +121,7 @@ const animate = () => {
 
 animate();
 
-// Resize event
+// Resize event listener
 
 window.addEventListener('resize', onWindowResize, true);
 
@@ -125,6 +132,8 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.render(scene, camera);
 }
+
+// Load models generic function
 
 function loadModel(path) {
     return new Promise((resolve, reject) => {
@@ -138,8 +147,12 @@ function loadModel(path) {
 
 }
 
+// Used preloader to enable audio at the start of experience
+
 let preloader = document.querySelector('.preloader');
 preloader.onclick = enterExperience;
+
+// Init function 
 
 function enterExperience(e) {
 
@@ -147,19 +160,24 @@ function enterExperience(e) {
     document.getElementsByTagName('main')[0].style.display = 'block';
 
     audio = new Audio('./music.mp3');
+    audio.currentTime = 15;
     audio.play();
     audio.loop = true;
 
     setTimeout(() => {
-        let header = document.querySelector('main');
-        header.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        if (!window.scrollY) {
+            let header = document.querySelector('main');
+            header.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
         toggleAnimation();
         loadCustomElement('animation-controls');
     }, 5000);
 }
+
+// Toggle controls
 
 const toggleAnimation = () => animationId ? (cancelAnimationFrame(animationId),
     animationId = null) : animate();
@@ -167,6 +185,7 @@ const toggleAnimation = () => animationId ? (cancelAnimationFrame(animationId),
 const toggleAudio = () => audio.paused ? audio.play() : audio.pause();
 
 // Used to load any defined custom html element. Takes two params name, container to query upon
+
 function loadCustomElement(name, attributes, container = document.body) {
     const game = document.createElement(name);
     attributes?.forEach(attribute => {
@@ -175,6 +194,19 @@ function loadCustomElement(name, attributes, container = document.body) {
     container.appendChild(game);
 }
 
-// Event Listners
+// Event Listeners
+
 document.addEventListener('animate', () => toggleAnimation());
 document.addEventListener('audio', () => toggleAudio())
+
+// Show Projects Logic
+
+let tryouts = document.querySelector('#tryouts');
+tryouts.onclick = (e) => {
+    let project = document.querySelector('#tryouts-project');
+    let projItem = document.querySelector('.project-item');
+    projItem.classList.toggle('flex-column');
+    project.style.width = '100%';
+    project.height = '700px';
+    console.log(e.target);
+}

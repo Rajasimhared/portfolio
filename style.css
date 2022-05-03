@@ -129,7 +129,8 @@ section {
 }
 
 ul {
-  list-style-type: circle;
+  list-style-type: disclosure-closed;
+  padding-inline-start: 20px;
 }
 
 li {
@@ -315,7 +316,7 @@ body #experience-timeline .timeline-block .event .event-body {
   background-color: #fff;
   min-height: 100px;
   border-radius: 5px;
-  padding: 2rem;
+  padding: 1.5rem;
   width: 90%;
   position: relative;
   border: 1px solid #eee;
@@ -434,4 +435,23 @@ body .social .follow {
   padding: 2rem;
   border-radius: 4px;
   border: 1px solid #eee;
+}
+
+.project-item {
+  display: flex;
+}
+
+.project-item-content {
+  margin-left: 3rem;
+}
+
+#tryouts {
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.flex-column {
+  flex-direction: column;
 }
