@@ -445,13 +445,37 @@ body .social .follow {
   margin-left: 3rem;
 }
 
-#tryouts {
+.project-overlay {
   position: absolute;
   width: 300px;
   height: 150px;
   cursor: pointer;
 }
 
+.project-overlay > i {
+  display: none;
+}
+
 .flex-column {
   flex-direction: column;
+}
+
+.project-close {
+  z-index: 6;
+  font-size: 5rem;
+  position: fixed;
+  top: 0;
+  right: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.project-expand {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  cursor: pointer;
 }

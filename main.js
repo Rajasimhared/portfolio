@@ -6,7 +6,8 @@ import {
 import {
     OrbitControls
 } from 'three/examples/jsm/controls/OrbitControls.js';
-import './AnimationControls';
+import './components/AnimationControls';
+import './components/ProjectItems';
 
 // Used to play/pause using controls in UI
 
@@ -199,14 +200,4 @@ function loadCustomElement(name, attributes, container = document.body) {
 document.addEventListener('animate', () => toggleAnimation());
 document.addEventListener('audio', () => toggleAudio())
 
-// Show Projects Logic
-
-let tryouts = document.querySelector('#tryouts');
-tryouts.onclick = (e) => {
-    let project = document.querySelector('#tryouts-project');
-    let projItem = document.querySelector('.project-item');
-    projItem.classList.toggle('flex-column');
-    project.style.width = '100%';
-    project.height = '700px';
-    console.log(e.target);
-}
+// Show/Hide Projects Logic
