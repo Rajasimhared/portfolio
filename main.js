@@ -174,7 +174,7 @@ function enterExperience(e) {
             });
         }
         toggleAnimation();
-        loadCustomElement('animation-controls');
+        loadCustomElement('c-animation-controls');
     }, 5000);
 }
 

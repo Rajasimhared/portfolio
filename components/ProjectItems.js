@@ -3,9 +3,9 @@ import {
 } from '../configs/configs';
 
 function createTemplate(project) {
-    const headerTemplate = document.createElement('template');
+    const coreTemplate = document.createElement('template');
 
-    headerTemplate.innerHTML = `
+    coreTemplate.innerHTML = `
         <style>
           
         </style>
@@ -32,7 +32,7 @@ function createTemplate(project) {
     
         </div>
     `;
-    return headerTemplate.content
+    return coreTemplate.content
 }
 
 class ProjectItems extends HTMLElement {
