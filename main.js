@@ -8,7 +8,7 @@ import {
 } from 'three/examples/jsm/controls/OrbitControls.js';
 import './components/AnimationControls';
 import './components/ProjectItems';
-
+import './components/WorkExperience';
 // Used to play/pause using controls in UI
 
 let animationId;
@@ -110,8 +110,6 @@ Array(100).fill().map(() => createMeshRandomAndRotate(torusGeometry, whiteBasicM
 
 const animate = () => {
     animationId = requestAnimationFrame(animate);
-    // floatingIsland && (floatingIsland.rotation.y += 0.01);
-    // camera.position.x += 0.1;
     delta = clock.getDelta();
     camera.position.x = Math.cos(angle) * radius;
     camera.position.z = Math.sin(angle) * radius + 40;
@@ -158,7 +156,6 @@ preloader.onclick = enterExperience;
 function enterExperience(e) {
 
     e.target.style.display = 'none'
-    document.getElementsByTagName('main')[0].style.display = 'block';
 
     audio = new Audio('./music.mp3');
     audio.currentTime = 15;
@@ -166,15 +163,10 @@ function enterExperience(e) {
     audio.loop = true;
 
     setTimeout(() => {
-        if (!window.scrollY) {
-            let header = document.querySelector('main');
-            header.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+        document.getElementsByTagName('main')[0].style.display = 'block';
+        // document.getElementsByTagName('main')[0].style.width = '100%';
         toggleAnimation();
-        loadCustomElement('c-animation-controls');
+        loadCustomElement('c-animation-controls', null, document.querySelector('main'));
     }, 5000);
 }
 

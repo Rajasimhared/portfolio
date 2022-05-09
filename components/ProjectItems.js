@@ -18,7 +18,9 @@ function createTemplate(project) {
                 allowTransparency = "true"
                 frameborder="0" 
                 id=${project.id} 
-                allow="fullscreen">
+                allow="fullscreen"
+                scrolling="no"
+                >
                 </iframe>
                 <div class="project-overlay" id="_${project.id}">
                     <i class="fa fa-window-close"></i>
@@ -41,7 +43,6 @@ class ProjectItems extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log(projects);
         projects.forEach(project => {
             this.appendChild(createTemplate(project));
         })
@@ -53,20 +54,9 @@ class ProjectItems extends HTMLElement {
                 let project = document.querySelector(`#${item.id.slice(1,item.id.length)}`);
                 e.currentTarget.parentElement.classList.toggle('flex-column');
                 project.classList.toggle('project-expand');
+                document.body.classList.toggle('disable-scroll');
             });
         });
-
-        // let tryouts = document.querySelectorAll('.project-overlay');
-
-        // tryouts.onclick = (e) => {
-        //     console.log(e.target);
-        // tryouts.classList.toggle('project-close');
-        // tryouts.classList.toggle('project-overlay');
-        // let project = document.querySelector('#project-frame');
-        // let projItem = document.querySelector('.project-item');
-        // projItem.classList.toggle('flex-column');
-        // project.classList.toggle('project-expand');
-        // }
 
     }
 }

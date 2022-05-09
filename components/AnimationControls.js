@@ -12,8 +12,10 @@ function createTemplate() {
                cursor: pointer;
                margin-left: 1rem;
                width: 60px;
+               box-shadow: 0 1.5rem 2.5rem 0 rgb(4 12 33 / 0%);
+               transition: transform .5s ease-out,box-shadow .5s ease;
            }
-           button: hover {
+           button:hover {
                 box-shadow: 0 1.5rem 2.5rem 0 #040c21;
                 transform: translateY(-0.25rem);
             }
@@ -26,7 +28,7 @@ function createTemplate() {
         </style>
         <div class="controls-wrapper">
             <button title="Animate" id="animate">
-                <i class="fa fa-rotate"></i>
+                <i class="fa-solid fa-video"></i>
             </button>
             <button title="Toggle Audio" id="audio">
                 <i class="fa fa-volume-high"></i>
@@ -46,7 +48,10 @@ class AnimationControls extends HTMLElement {
         this.appendChild(createTemplate());
 
         const animate = document.querySelector('#animate');
-        animate.addEventListener('click', () => {
+        animate.addEventListener('click', (e) => {
+            let animateIcon = e.currentTarget.querySelector('i');
+            animateIcon.classList.toggle('fa-video');
+            animateIcon.classList.toggle('fa-video-slash');
             const event = new CustomEvent('animate', {});
             document.dispatchEvent(event);
         })
