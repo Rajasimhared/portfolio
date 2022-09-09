@@ -19,7 +19,7 @@ var options = {
   smartBackspace: true,
   loop: true,
   loopCount: Infinity,
-  showCursor: false,
+  showCursor: true,
   backDelay: 700,
   backSpeed: 50,
 };
