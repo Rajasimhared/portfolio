@@ -9,13 +9,15 @@ import {
 import './components/AnimationControls';
 import './components/ProjectItems';
 import './components/WorkExperience';
+import './components/PreLoader';
 // Used to play/pause using controls in UI
 
 let animationId;
 let audio;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x91d1ff);
+// scene.background = new THREE.Color(0x91d1ff);
+scene.background = new THREE.Color(0x000000);
 
 // Camera
 
@@ -154,20 +156,19 @@ preloader.onclick = enterExperience;
 // Init function 
 
 function enterExperience(e) {
-
-    e.target.style.display = 'none'
-
-    audio = new Audio('./music.mp3');
-    audio.currentTime = 15;
-    audio.play();
-    audio.loop = true;
-
     setTimeout(() => {
-        document.getElementsByTagName('main')[0].style.display = 'block';
-        // document.getElementsByTagName('main')[0].style.width = '100%';
-        toggleAnimation();
-        loadCustomElement('c-animation-controls', null, document.querySelector('main'));
-    }, 5000);
+        audio = new Audio('./music.mp3');
+        audio.currentTime = 15;
+        audio.play();
+        audio.loop = true;
+
+        setTimeout(() => {
+            document.getElementsByTagName('main')[0].style.display = 'block';
+            toggleAnimation();
+            loadCustomElement('c-animation-controls', null, document.querySelector('main'));
+        }, 5000);
+
+    }, 8000)
 }
 
 // Toggle controls
