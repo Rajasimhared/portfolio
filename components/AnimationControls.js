@@ -1,10 +1,10 @@
 function createTemplate() {
-    const coreTemplate = document.createElement('template');
+  const coreTemplate = document.createElement("template");
 
-    coreTemplate.innerHTML = `
+  coreTemplate.innerHTML = `
         <style>
            button {
-               background: rgba(0, 0, 0, 0.1);
+               background: rgba(0, 0, 0, 0.5);
                border-radius: 1rem;
                padding: 0.75rem;
                border-style: none;
@@ -12,7 +12,7 @@ function createTemplate() {
                cursor: pointer;
                margin-left: 1rem;
                width: 60px;
-               box-shadow: 0 1.5rem 2.5rem 0 rgb(4 12 33 / 0%);
+               box-shadow: 0 1.5rem 2.5rem 0 rgb(255 255 255 / 52%);
                transition: transform .5s ease-out,box-shadow .5s ease;
            }
            button:hover {
@@ -28,44 +28,42 @@ function createTemplate() {
         </style>
         <div class="controls-wrapper">
             <button title="Animate" id="animate">
-                <i class="fa-solid fa-video"></i>
+                <i class="fa-solid fa-video" style="color:white;"></i>
             </button>
             <button title="Toggle Audio" id="audio">
-                <i class="fa fa-volume-high"></i>
+                <i class="fa fa-volume-high" style="color:white;"></i>
             </button>
         </div>
     `;
-    return coreTemplate.content;
+  return coreTemplate.content;
 }
-
 
 class AnimationControls extends HTMLElement {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    connectedCallback() {
-        this.appendChild(createTemplate());
+  connectedCallback() {
+    this.appendChild(createTemplate());
 
-        const animate = document.querySelector('#animate');
-        animate.addEventListener('click', (e) => {
-            let animateIcon = e.currentTarget.querySelector('i');
-            animateIcon.classList.toggle('fa-video');
-            animateIcon.classList.toggle('fa-video-slash');
-            const event = new CustomEvent('animate', {});
-            document.dispatchEvent(event);
-        })
+    const animate = document.querySelector("#animate");
+    animate.addEventListener("click", (e) => {
+      let animateIcon = e.currentTarget.querySelector("i");
+      animateIcon.classList.toggle("fa-video");
+      animateIcon.classList.toggle("fa-video-slash");
+      const event = new CustomEvent("animate", {});
+      document.dispatchEvent(event);
+    });
 
-        const audio = document.querySelector('#audio');
-        audio.addEventListener('click', (e) => {
-            let audioIcon = e.currentTarget.querySelector('i');
-            audioIcon.classList.toggle('fa-volume-high');
-            audioIcon.classList.toggle('fa-volume-xmark');
-            const event = new CustomEvent('audio', {});
-            document.dispatchEvent(event);
-        })
-
-    }
+    const audio = document.querySelector("#audio");
+    audio.addEventListener("click", (e) => {
+      let audioIcon = e.currentTarget.querySelector("i");
+      audioIcon.classList.toggle("fa-volume-high");
+      audioIcon.classList.toggle("fa-volume-xmark");
+      const event = new CustomEvent("audio", {});
+      document.dispatchEvent(event);
+    });
+  }
 }
 
-customElements.define('c-animation-controls', AnimationControls);
+customElements.define("c-animation-controls", AnimationControls);

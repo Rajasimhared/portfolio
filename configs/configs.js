@@ -48,11 +48,9 @@ const experiences = [
     duration: "Since January 2020",
     workDescription: `
     <ul>
-        <li>
+        <li><strong>Buy Journeys:</strong>
             Built multiple anonymous user flow where user can choose and
-            configure telecom offers, this was part of <strong>digital
-                transformation</strong>
-            for the telecom company’s [
+            configure telecom offers. [
             <a href="https://m1-heroku.herokuapp.com/"
                 target="_blank">link1</a>] [
             <a href="https://bt-nextgen-buy.herokuapp.com/"
@@ -61,38 +59,46 @@ const experiences = [
                 target="_blank">link3</a>].
         </li>
         <li>
-            Bootstrapped project using <strong>web components, webpack</strong>
-            to make it work
-            off the salesforce platform, since the OOTB solutions work only on
-            salesforce platform.
+        <strong>OmniOut/OffPlatform:</strong> Designed, developed, and integrated application that 
+        uses the OmniScripts/FlexCards outside Salesforce like in react, AEM, Sitecore, 
+        etc. Bootstrapped a project using <strong>Vlocity Web Components, Webpack, Node.js</strong>
+        for a buy journey.
         </li>
-        <li>
+         <li>  <strong>Catalog Publishing: </strong>Designed and developed a solution to publish the
+          product catalog from Salesforce to other systems. It allows project manager to either do 
+          <strong>bulk or incremental</strong> publish from the UI.</li>
+ <li>
             Built connected apps with <strong>JWT OAuth2.0</strong>
             nodejs(cluster) server
             architecture which can handle <strong>thousands of requests</strong>
             to authenticate
             salesforce endpoints
         </li>
+
+         <li>
+         <strong>Optimizations:</strong>
+            Performance optimizations on Vlocity Web Components using Webpack 
+            bundler which reduced bundle size by <strong>300%</strong>, 
+            reduced build time from  <strong>120 sec</strong> to <strong>6 sec</strong>, 
+            improving performance by <strong>100%</strong>.
+        </li>
+<li>
+         <strong>Reusability:</strong>
+           Created reusable <strong>custom Web Components</strong>, leveraged on 3 other projects. 
+           Developed <strong>reusable</strong> OmniScripts architecture that was used across 
+           multiple projects hence reducing the development time to <strong>30%</strong> to the customer.
+        </li>
         <li>
-            Performance optimizations on VWC using webpack bundler which reduced
-            bundle size by <strong>300%</strong>, project build takes <strong>
-                sec from
-                120 sec</strong> earlier,
-            performance improved by <strong>100%</strong>
+        <strong>POCs:</strong>
+          Worked on multiple POCs that have helped <strong>acquire</strong> 
+          multiple customers, and also in project solutions.
         </li>
-        <li>Developed  <strong>reusable </strong> omniscripts architecture that was used across multiple projects hence reducing the development time
-to  <strong>30% </strong> and also proved  <strong>cost-effective </strong>(less than half the amount) to the customer.</li>
-        <li> Created custom web components from  <strong>scratch </strong> which were later used across many projects, as there were no OOTB
-components for the designs.</li>
-        <li>  <strong>Product Distribution </strong>: Designed and developed an architecture to  <strong>publish products </strong> from the org to third-party systems,
-this helped the customer to create a  <strong>recommendation engine </strong> that can serve users’ best offers.</li>
-        <li> Worked extensively on the  <strong>Digital Commerce APIs, Cart APIs, Product Configuration, Apex, Omniscripts, Flexcards,
-IP and DRs </strong>. Actively involved in  <strong>POCs </strong>, which helped deliver things on time.</li>
-        <li> Hold two certifications  <strong>Omnistudio Platform Developer </strong> and  <strong>Javascript Developer I </strong>. Also, I am a  <strong>Trailhead Ranger </strong>.</li>
-        <li>Used <strong>Polymerjs, lit-element, web components, nodejs,
-                expressjs,
-                lwc.</strong>
+<li>
+         <strong>Tech Stack:</strong>
+         Digital Commerce APIs, Cart APIs, Product Configuration, Apex, OmniScripts, FlexCards, 
+         Integration Procedures, and DataRaptors.
         </li>
+       
     </ul>
     `,
     logo: "salesforce-logo.svg",

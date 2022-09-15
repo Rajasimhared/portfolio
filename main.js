@@ -13,7 +13,7 @@ var options = {
     "Software Developer",
     "Web Technophile",
     "Frontend Expert",
-    "Salesforce Enthusiast",
+    "Salesforce Technical Architect",
   ],
   typeSpeed: 100,
   smartBackspace: true,
@@ -30,7 +30,7 @@ let animationId;
 let audio;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x91d1ff);
+scene.background = new THREE.Color(0x000);
 
 // Camera
 
