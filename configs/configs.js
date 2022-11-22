@@ -68,7 +68,7 @@ const experiences = [
           product catalog from Salesforce to other systems. It allows project manager to either do 
           <strong>bulk or incremental</strong> publish from the UI.</li>
  <li>
-            Built connected apps with <strong>JWT OAuth2.0</strong>
+            <strong>Scalability:</strong>Built connected apps with <strong>JWT OAuth2.0</strong>
             nodejs(cluster) server
             architecture which can handle <strong>thousands of requests</strong>
             to authenticate
@@ -95,8 +95,7 @@ const experiences = [
         </li>
 <li>
          <strong>Tech Stack:</strong>
-         Digital Commerce APIs, Cart APIs, Product Configuration, Apex, OmniScripts, FlexCards, 
-         Integration Procedures, and DataRaptors.
+        Polymerjs, lit-element, web components , nodejs, expressjs, reactjs and lightning web components.
         </li>
        
     </ul>
