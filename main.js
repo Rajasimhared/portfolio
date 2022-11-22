@@ -9,12 +9,7 @@ import "./components/WorkExperience";
 import Typed from "typed.js";
 
 var options = {
-  strings: [
-    "Software Developer",
-    "Web Technophile",
-    "Frontend Expert",
-    "Salesforce Technical Architect",
-  ],
+  strings: ["Software Developer", "Web Technophile", "Frontend Expert"],
   typeSpeed: 100,
   smartBackspace: true,
   loop: true,
