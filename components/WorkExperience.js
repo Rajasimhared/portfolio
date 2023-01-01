@@ -1,23 +1,17 @@
-import {
-    experiences
-} from '../configs/configs';
+import { experiences } from "../configs/configs";
 
 function createTemplate(work, alignment) {
-    const coreTemplate = document.createElement('template');
+  const coreTemplate = document.createElement("template");
 
-    coreTemplate.innerHTML = `
-        <style>
-            h2{
-                margin-top:0;
-            }
-        </style>
-      
-        <div class="${alignment === 'left' ? 'l-event' : 'r-event'} event col-md-6 col-sm-6 col-xs-8 ">
+  coreTemplate.innerHTML = `
+        <div class="${
+          alignment === "left" ? "l-event" : "r-event"
+        } event w-6/12">
             <div class="event-body">
                 <div class="event-content">
-                    <h2>${work.company}</h2>
-                    <h5 class="text-primary text-left">${work.title}</h5>
-                    <span class="text-muted text-left" style="display:block; margin: 0">
+                    <h3 class="funky">${work.company}</h3>
+                    <h5 class="text-simple text-left">${work.title}</h5>
+                    <span class="text-simple text-muted text-left" style="display:block; margin: 0">
                         <small>${work.duration}</small>
                     </span>
                     <br />
@@ -31,20 +25,21 @@ function createTemplate(work, alignment) {
         <div class="row">
         </div>
     `;
-    return coreTemplate.content
+  return coreTemplate.content;
 }
 
 class WorkExperience extends HTMLElement {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    connectedCallback() {
-        experiences.forEach((experience, index) => {
-            this.appendChild(createTemplate(experience, index % 2 ? 'right' : 'left'));
-        });
-
-    }
+  connectedCallback() {
+    experiences.forEach((experience, index) => {
+      this.appendChild(
+        createTemplate(experience, index % 2 ? "right" : "left")
+      );
+    });
+  }
 }
 
-customElements.define('c-work-experience', WorkExperience);
+customElements.define("c-work-experience", WorkExperience);
