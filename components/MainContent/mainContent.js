@@ -170,7 +170,7 @@ function introTemplate() {
         <br />
         <div class="wrapper-container">
           <h3>
-            <a href="https://nie.ac.in/" target="_blank"
+            <a class="font-medium text-slate-800 underline dark:text-slate-800 hover:no-underline" href="https://nie.ac.in/" target="_blank"
               >The National Institute of Engineering, Mysuru, India
             </a>
           </h3>
@@ -178,7 +178,7 @@ function introTemplate() {
           2014 - May 2018
           <hr class="my-4"/>
           <h3>
-            <a href="https://alvaspucollege.org/" target="_blank"
+            <a class="font-medium text-slate-800 underline dark:text-slate-800 hover:no-underline" href="https://alvaspucollege.org/" target="_blank"
               >Alva's PU College, Mudbidri, India
             </a>
           </h3>

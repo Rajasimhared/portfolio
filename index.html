@@ -2,15 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="all" />
+    <meta
+      name="description"
+      content="This is my portfolio site that gives good insights about my work and experience"
+    />
     <link rel="icon" type="image/svg+xml" href="favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
-    /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,12 +21,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Rajasimha Reddy</title>
+    <title>Rajasimha Reddy | Portfolio</title>
   </head>
 
   <body class="bg-black">
-    <c-landing-page class="w-full"></c-landing-page>
-
+    <c-landing-page class="w-full hidden md:block"></c-landing-page>
+    <span class="block top-1/2 absolute w-full md:hidden"
+      >Sorry only available on desktop as of now!</span
+    >
     <script type="module" src="/main.js"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@ function introTemplate() {
   const coreTemplate = document.createElement("template");
 
   coreTemplate.innerHTML = `
-<nav class="bg-gray-800 relative z-[2] sticky top-0 ">
+<nav class="bg-slate-800 relative z-[3] sticky top-0 ">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -47,17 +47,20 @@ function introTemplate() {
           </div>
         </div>
       </div>
-     <!-- 
-     Heroicon name: outline/bell
-     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <span class="sr-only">View notifications</span>
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-          </svg>
+     <div class="text-lg absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <a target="_blank" href="https://www.linkedin.com/in/rajasimha-reddy" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <i class="fa-brands fa-linkedin-in"></i>        
+        </a>
+         <a target="_blank" href="https://github.com/Rajasimhared" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <i class="fa-brands fa-github"></i>        
+        </a>
+        <button  onclick="return alert('rajasimha5599@gmail.com')" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <i class="fa-brands fa-google"></i>        
+        </button>
+         <button onclick="return alert('+91 8904455359')" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <i class="fa fa-phone" aria-hidden="true"></i>
         </button>
       </div>
-      -->
     </div>
   </div>
 

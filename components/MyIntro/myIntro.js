@@ -6,14 +6,17 @@ function introTemplate() {
 
   coreTemplate.innerHTML = `
        <div class="relative grid grid-cols-2 gap-4 z-[2] max-w-lg mx-auto shadow-md overflow-hidden md:max-w-5xl bg-slate-800 rounded-xl p-8">
-       <div class="justify-self-center">
+       <div class="flex flex-col flex items-center justify-evenly">
          <img
           src="/Rajasimha_Reddy.jpg"
-          width="200px"
-          heigth="200px"
+          width="200"
+          heigth="200"
           class="profile-pic"
+          alt="Rajasimha Reddy Pic"
         />
+        <span>
         <strong id="my-description" style="font-size: 2rem"></strong>
+        </span>
        </div>
       <div class="flex content-center flex-col justify-center">
       <h1>I'm Rajasimha Reddy</h1>

@@ -8,3 +8,8 @@ p {
   z-index: 2;
   font-family: "Work Sans", sans-serif;
 }
+
+.typed-cursor {
+  font-size: 1.5rem;
+  padding: 0 5px;
+}
