@@ -4,9 +4,6 @@ function createTemplate(project) {
   const coreTemplate = document.createElement("template");
 
   coreTemplate.innerHTML = `
-        <style>
-          
-        </style>
         <div class="wrapper-container">
             <div class="project-item">
                 <iframe src=${project.projectLink}
@@ -46,6 +43,8 @@ class ProjectItems extends HTMLElement {
     Array.from(document.querySelectorAll(".project-overlay")).forEach(
       (item) => {
         item.addEventListener("click", (e) => {
+          let navBar = document.querySelector("c-nav-bar");
+          navBar.classList.toggle("hidden");
           item.classList.toggle("project-close");
           item.classList.toggle("project-overlay");
           let project = document.querySelector(

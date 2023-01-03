@@ -124,6 +124,7 @@ function introTemplate() {
                     <br />
                     <br />
                     <ul style="font-size: large">
+                      <li>Vite</li>
                       <li>Webpack</li>
                       <li>Babel</li>
                       <li>NPM</li>
