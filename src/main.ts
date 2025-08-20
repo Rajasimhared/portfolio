@@ -9,23 +9,20 @@ import "./style.css";
 // Used to load any defined custom html element. Takes two params name, container to query upon
 
 function loadCustomElement(
-  name:any,
-  attributes:any,
-  position:any,
-  container = document.body
+  name: string,
+  attributes: Array<{ key: string; value: string }> | null = null,
+  position: "first" | null = null,
+  container: HTMLElement = document.body
 ) {
-  const game = document.createElement(name);
-  attributes?.forEach((attribute:any) => {
-    game.setAttribute(attribute.key, attribute.value);
+  const element = document.createElement(name);
+  attributes?.forEach((attribute) => {
+    element.setAttribute(attribute.key, attribute.value);
   });
-  if (position == "first") {
-    // Get the parent's first child
-    let theFirstChild = container.firstChild;
-
-    // Insert the new element before the first child
-    container.insertBefore(game, theFirstChild);
+  if (position === "first") {
+    const firstChild = container.firstChild;
+    container.insertBefore(element, firstChild);
   } else {
-    container.appendChild(game);
+    container.appendChild(element);
   }
 }
 
@@ -33,29 +30,18 @@ function loadCustomElement(
 
 // Init function
 
-export function enterExperience(e:any) {
-  e.target.style.display = "none";
-  loadCustomElement("c-main-content",undefined,undefined,undefined);
+export function enterExperience(e: Event) {
+  const target = e.target as HTMLElement | null;
+  if (target) target.style.display = "none";
+  loadCustomElement("c-main-content");
   loadCustomElement("c-nav-bar", null, "first");
 
-  let mainContent = document.querySelector("c-main-content");
-
-  mainContent && mainContent.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-    inline: "nearest",
-  });
-
-//   audio = new Audio("./music.mp3");
-//   audio.currentTime = 15;
-//   audio.play();
-//   audio.loop = true;
-
-//   toggleAnimation();
-//   loadCustomElement(
-//     "c-animation-controls",
-//     null,
-//     null,
-//     document.querySelector("main")
-//   );
+  const mainContent = document.querySelector("c-main-content");
+  if (mainContent) {
+    mainContent.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }
 }

@@ -171,7 +171,7 @@ function introTemplate() {
         <br />
         <div class="wrapper-container">
           <h3>
-            <a class="font-medium text-slate-800 underline dark:text-slate-800 hover:no-underline" href="https://nie.ac.in/" target="_blank"
+            <a class="font-medium text-slate-800 underline dark:text-slate-800 hover:no-underline" href="https://nie.ac.in/" target="_blank" rel="noopener noreferrer"
               >The National Institute of Engineering, Mysuru, India
             </a>
           </h3>
@@ -179,7 +179,7 @@ function introTemplate() {
           2014 - May 2018
           <hr class="my-4"/>
           <h3>
-            <a class="font-medium text-slate-800 underline dark:text-slate-800 hover:no-underline" href="https://alvaspucollege.org/" target="_blank"
+            <a class="font-medium text-slate-800 underline dark:text-slate-800 hover:no-underline" href="https://alvaspucollege.org/" target="_blank" rel="noopener noreferrer"
               >Alva's PU College, Mudbidri, India
             </a>
           </h3>
@@ -201,13 +201,12 @@ function introTemplate() {
       <footer class="text-center">
         <div class="social">
           Follow Me:
-          <a target="_blank" href="">
+          <a target="_blank" rel="noopener noreferrer" href="">
             <abbr title="Codepen"><i class="fa fa-codepen follow"></i></abbr>
           </a>
-          <a href=""
-            ><abbr title="Github" target="_blank"
-              ><i class="fa fa-github"></i></abbr
-          ></a>
+          <a href="" target="_blank" rel="noopener noreferrer">
+            <abbr title="Github"><i class="fa fa-github"></i></abbr>
+          </a>
         </div>
       </footer>
     </main>

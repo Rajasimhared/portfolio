@@ -3,6 +3,12 @@ import { experiences } from "../configs/configs";
 function createTemplate(work, alignment) {
   const coreTemplate = document.createElement("template");
 
+  const logoClass = `logo-${alignment} ${
+    work.company && work.company.toLowerCase().includes("scapic")
+      ? "logo-white"
+      : ""
+  }`;
+
   coreTemplate.innerHTML = `
         <div class="${
           alignment === "left" ? "l-event" : "r-event"
@@ -20,7 +26,7 @@ function createTemplate(work, alignment) {
                     </div>
                 </div>
             </div>
-            <div class="logo-${alignment}"><img src=${work.logo}/> </div>
+            <div class="${logoClass}"><img src="${work.logo}" alt="${work.company} logo"/> </div>
         </div>
         <div class="row">
         </div>

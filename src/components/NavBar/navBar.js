@@ -1,5 +1,3 @@
-import "./navBar.css";
-
 function introTemplate() {
   const coreTemplate = document.createElement("template");
 
@@ -48,18 +46,18 @@ function introTemplate() {
         </div>
       </div>
      <div class="text-lg absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <a target="_blank" href="https://www.linkedin.com/in/rajasimha-reddy" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <i class="fa-brands fa-linkedin-in"></i>        
+        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/rajasimha-reddy" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
         </a>
-         <a target="_blank" href="https://github.com/Rajasimhared" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <i class="fa-brands fa-github"></i>        
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/Rajasimhared" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
         </a>
-        <button  onclick="return alert('rajasimha5599@gmail.com')" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <i class="fa-brands fa-google"></i>        
-        </button>
-         <button onclick="return alert('+91 8904455359')" type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+        <a href="mailto:rajasimha5599@gmail.com" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-label="Email">
+          <i class="fa-brands fa-google"></i>
+        </a>
+        <a href="tel:+918904455359" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-label="Phone">
           <i class="fa fa-phone" aria-hidden="true"></i>
-        </button>
+        </a>
       </div>
     </div>
   </div>

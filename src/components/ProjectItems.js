@@ -21,7 +21,7 @@ function createTemplate(project) {
                 <div class="project-item-content">
                     <h2 class="funky">${project.name}</h2>
                     <p>${project.description}</p>
-                    <a href=${project.githubLink} target="_blank">Github link</a>
+                    <a href=${project.githubLink} target="_blank" rel="noopener noreferrer">Github link</a>
                 </div>
             </div>
     

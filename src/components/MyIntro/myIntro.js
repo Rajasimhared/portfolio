@@ -8,7 +8,7 @@ function introTemplate() {
        <div class="relative grid grid-cols-2 gap-4 z-[2] max-w-lg mx-auto shadow-md overflow-hidden md:max-w-5xl bg-slate-800 rounded-xl p-8">
        <div class="flex flex-col flex items-center justify-evenly">
          <img
-          src="/Rajasimha_Reddy.jpg"
+          src="${import.meta.env.BASE_URL}Rajasimha_Reddy.jpg"
           width="200"
           heigth="200"
           class="profile-pic"
@@ -52,7 +52,7 @@ class MyIntro extends HTMLElement {
       backSpeed: 50,
     };
 
-    var typed = new Typed("#my-description", options);
+    new Typed("#my-description", options);
   }
 }
 

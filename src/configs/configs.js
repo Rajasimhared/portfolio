@@ -1,3 +1,5 @@
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const projects = [
   {
     id: "tryouts",
@@ -52,11 +54,11 @@ const experiences = [
             Built multiple anonymous user flow where user can choose and
             configure telecom offers. [
             <a href="https://m1-heroku.herokuapp.com/"
-                target="_blank">link1</a>] [
+                target="_blank" rel="noopener noreferrer">link1</a>] [
             <a href="https://bt-nextgen-buy.herokuapp.com/"
-                target="_blank">link2</a>] [ <a
+                target="_blank" rel="noopener noreferrer">link2</a>] [ <a
                 href="https://order-tracker.surge.sh/"
-                target="_blank">link3</a>].
+                target="_blank" rel="noopener noreferrer">link3</a>].
         </li>
         <li>
         <strong>OmniOut/OffPlatform:</strong> Designed, developed, and integrated application that 
@@ -100,7 +102,7 @@ const experiences = [
        
     </ul>
     `,
-    logo: "salesforce-logo.svg",
+    logo: asset("salesforce-logo.svg"),
   },
   {
     title: "Software Development Engineer",
@@ -149,7 +151,7 @@ const experiences = [
             quickly. </li>
         <li>
             <a href="https://drive.google.com/file/d/1RuTu6w0tLk7E-7UfRzHTp3dCUYKPzJqq/view"
-                target="_blank">Excellence
+                target="_blank" rel="noopener noreferrer">Excellence
                 award</a> for the month Oct 2018.
         </li>
         <li>Used <strong>reactjs, redux, vanilla JS</strong> to build these
@@ -157,7 +159,7 @@ const experiences = [
         </li>
     </ul>
     `,
-    logo: "youplus-logo.svg",
+    logo: asset("youplus-logo.svg"),
   },
   {
     title: "Frontend Intern",
@@ -181,12 +183,12 @@ const experiences = [
             <strong>cypress</strong>
             which helped in catching regression bugs for the devs. <a
                 href="https://scapic.com/create/login"
-                target="_blank">[link]</a>
+                target="_blank" rel="noopener noreferrer">[link]</a>
         </li>
 
     </ul>
     `,
-    logo: "scapic-logo.svg",
+    logo: asset("scapic-logo.svg"),
   },
   {
     title: "Summer School Intern",
@@ -201,7 +203,7 @@ const experiences = [
             the Department of Computer Science and Automation, IISc during July
             2017 <a
                 href="https://drive.google.com/file/d/1AGdIg2l5Tug_8rAp3PkATp-nTq3rFD6H/view"
-                target="_blank">[Link]</a>.
+                target="_blank" rel="noopener noreferrer">[Link]</a>.
         </li>
         <li>
             I was exposed to several contemporary research work going on in &
@@ -212,7 +214,7 @@ const experiences = [
             I also won a prize in the quiz on the final day. </li>
     </ul>
     `,
-    logo: "iisc-logo.png",
+    logo: asset("iisc-logo.png"),
   },
 ];
 

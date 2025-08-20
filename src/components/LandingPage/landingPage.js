@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import "./landingPage.css";
 import { enterExperience } from "../../main";
 
 function createTemplate() {
@@ -30,6 +29,7 @@ class LandingPage extends HTMLElement {
       window.innerWidth / 2,
       window.innerHeight / 2
     );
+    this._rafId = null;
   }
 
   connectedCallback() {
@@ -48,16 +48,20 @@ class LandingPage extends HTMLElement {
       antialias: true,
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.loadStars();
     this.animate();
 
-    let knowMore = this.querySelector("#know-more");
-    knowMore.onclick = (e) => enterExperience(e);
+    window.addEventListener("resize", this.onWindowResize, false);
+
+    const knowMore = this.querySelector("#know-more");
+    if (knowMore) {
+      knowMore.addEventListener("click", (e) => enterExperience(e));
+    }
   }
 
   loadStars = () => {
-    let sprite = new THREE.TextureLoader().load("/star.png");
+    const sprite = new THREE.TextureLoader().load(`${import.meta.env.BASE_URL}star.png`);
 
     const vertices = [];
 
@@ -88,15 +92,23 @@ class LandingPage extends HTMLElement {
     controls.minPolarAngle = 0; // radians
     controls.maxPolarAngle = Math.PI; // radians
     controls.enableZoom = false;
-    controls.minPolarAngle = 0;
-    controls.maxPolarAngle = Math.PI;
 
     document.addEventListener("mousemove", this.onMouseMove, false);
   };
 
   onMouseMove = (event) => {
     this.mouse.x = event.clientX - this.windowHalf.x;
-    this.mouse.y = event.clientY - this.windowHalf.x;
+    this.mouse.y = event.clientY - this.windowHalf.y;
+  };
+
+  onWindowResize = () => {
+    this.windowHalf.set(window.innerWidth / 2, window.innerHeight / 2);
+    if (this.camera && this.camera.isPerspectiveCamera) {
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+    }
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   };
 
   animate = () => {
@@ -121,8 +133,14 @@ class LandingPage extends HTMLElement {
     this.starsGeo.attributes.position.needsUpdate = true;
     // this.stars.rotation.y += 0.002;
     this.renderer.render(this.scene, this.camera);
-    requestAnimationFrame(this.animate);
+    this._rafId = requestAnimationFrame(this.animate);
   };
+
+  disconnectedCallback() {
+    document.removeEventListener("mousemove", this.onMouseMove, false);
+    window.removeEventListener("resize", this.onWindowResize, false);
+    if (this._rafId) cancelAnimationFrame(this._rafId);
+  }
 }
 
 customElements.define("c-landing-page", LandingPage);
