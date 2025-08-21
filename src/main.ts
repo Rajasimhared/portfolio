@@ -1,9 +1,12 @@
 import "./components/ProjectItems";
 import "./components/WorkExperience";
+import "./components/Education";
+import "./components/Skills";
 import "./components/MyIntro/myIntro.js";
 import "./components/LandingPage/landingPage.js";
 import "./components/MainContent/mainContent.js";
 import "./components/NavBar/navBar.js";
+import "./components/Achievements.js";
 import "./style.css";
 
 // Used to load any defined custom html element. Takes two params name, container to query upon
@@ -33,6 +36,10 @@ function loadCustomElement(
 export function enterExperience(e: Event) {
   const target = e.target as HTMLElement | null;
   if (target) target.style.display = "none";
+  const banner = document.getElementById("mobile-heads-up-banner");
+  if (banner && banner.parentNode) {
+    banner.parentNode.removeChild(banner);
+  }
   loadCustomElement("c-main-content");
   loadCustomElement("c-nav-bar", null, "first");
 

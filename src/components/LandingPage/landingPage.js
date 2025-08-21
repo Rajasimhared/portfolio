@@ -30,10 +30,12 @@ class LandingPage extends HTMLElement {
       window.innerHeight / 2
     );
     this._rafId = null;
+    this._mobileBanner = null;
   }
 
   connectedCallback() {
     this.appendChild(createTemplate());
+    this.showMobileHeadsUpIfNeeded();
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       90,
@@ -59,6 +61,30 @@ class LandingPage extends HTMLElement {
       knowMore.addEventListener("click", (e) => enterExperience(e));
     }
   }
+
+  showMobileHeadsUpIfNeeded = () => {
+    const isMobileViewport = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+    if (!isMobileViewport) return;
+
+    // Avoid duplicate banners on re-renders/HMR
+    if (document.getElementById("mobile-heads-up-banner")) return;
+
+    const banner = document.createElement("div");
+    banner.id = "mobile-heads-up-banner";
+    banner.className = "fixed top-0 left-0 right-0 z-50 bg-amber-100 text-amber-900 border-b border-amber-300 px-4 py-2 text-sm md:text-base flex items-center justify-center";
+    banner.innerHTML = `
+      <span class=\"mr-8\">Heads up! The full experience looks way better on a desktop screen.</span>
+      <button aria-label=\"Dismiss\" class=\"absolute right-7 top-1/2 -translate-y-1/2 text-amber-900 hover:text-amber-700\">&times;</button>
+    `;
+    const closeBtn = banner.querySelector("button");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
+      });
+    }
+    document.body.appendChild(banner);
+    this._mobileBanner = banner;
+  };
 
   loadStars = () => {
     const sprite = new THREE.TextureLoader().load(`${import.meta.env.BASE_URL}star.png`);
@@ -140,6 +166,10 @@ class LandingPage extends HTMLElement {
     document.removeEventListener("mousemove", this.onMouseMove, false);
     window.removeEventListener("resize", this.onWindowResize, false);
     if (this._rafId) cancelAnimationFrame(this._rafId);
+    if (this._mobileBanner && this._mobileBanner.parentNode) {
+      this._mobileBanner.parentNode.removeChild(this._mobileBanner);
+      this._mobileBanner = null;
+    }
   }
 }
 

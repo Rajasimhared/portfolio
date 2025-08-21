@@ -47,7 +47,9 @@ h2 {
 }
 
 .funky {
-  font-family: "Rubik Vinyl", cursive;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .text-simple {
@@ -355,47 +357,67 @@ body #experience-timeline .timeline-block .event .event-body .person-image img {
 }
 
 @media (max-width: 768px) {
+  body #experience-timeline .timeline-block .timeline-events .l-event,
+  body #experience-timeline .timeline-block .timeline-events .r-event {
+    float: none;
+    width: 100%;
+  }
+  main {
+    top: 8vh;
+    border-radius: 1.5rem;
+    padding: 1rem;
+  }
+  body #experience-timeline .timeline-block .event {
+    display: flex;
+    flex-direction: column;
+  }
+  body #experience-timeline .timeline-block .event .logo-left,
+  body #experience-timeline .timeline-block .event .logo-right {
+    order: 0;
+    align-self: center;
+    margin-bottom: 0.75rem;
+  }
+  body #experience-timeline .timeline-block .event .event-body {
+    order: 1;
+  }
+  .project-item {
+    flex-direction: column;
+  }
+  .project-item-content {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  iframe {
+    width: 100%;
+    height: 220px;
+  }
+  .logo-left,
+  .logo-right {
+    position: static;
+    transform: none;
+  }
+  .logo-left img,
+  .logo-right img {
+    width: 140px;
+  }
   body #experience-timeline .timeline-top {
-    text-align: right;
-    padding-right: 20%;
+    text-align: center;
+    padding-right: 0;
   }
   body .timeline-block {
     width: 100%;
-    height: 100vh;
+    height: auto;
     position: relative;
-    background-color: #eee;
+    background-color: transparent;
   }
   body .timeline-block:after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    background-color: #333;
-    left: 5%;
-    top: 0;
-    margin-left: -3px;
     display: none;
   }
   body .timeline-block .r-event .event-body:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 6px;
-    height: 100%;
-    background-color: #1e293b;
-    left: -30%;
-    border-radius: 3px;
-    box-shadow: 1px 1px 1px #fff;
+    display: none;
   }
   body .timeline-block .l-event .event-body:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 6px;
-    height: 100%;
-    background-color: #1e293b;
-    right: -30%;
-    border-radius: 3px;
-    box-shadow: -1px 1px 1px #fff;
+    display: none;
   }
 }
 
@@ -418,7 +440,9 @@ body footer {
 body footer a {
   padding: 5px;
 }
-
+a {
+  color: #5534a5;
+}
 body .social {
   color: #999;
   letter-spacing: 1px;
@@ -521,26 +545,31 @@ iframe {
   border-radius: 25px;
 }
 
-.logo-right > img {
+.logo-right img {
   width: 200px;
   transition: transform 0.5s ease-out, filter 0.5s ease;
 }
 
-.logo-left > img {
+.logo-left img {
   width: 200px;
   transition: transform 0.5s ease-out, filter 0.5s ease;
 }
 
-.logo-right > img:hover {
+.logo-right img:hover {
   filter: drop-shadow(4px 5px 10px rgba(0, 0, 0, 0.7));
   transform: translateY(-0.5rem);
 }
 
-.logo-left > img:hover {
+.logo-left img:hover {
   filter: drop-shadow(4px 5px 10px rgba(0, 0, 0, 0.7));
   transform: translateY(-0.5rem);
 }
 
+#mobile-heads-up-banner {
+  font-size: 0.8rem;
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+}
 /* Force white background for logos that require it (e.g., Scapic) */
 .logo-white {
   background: white;
@@ -559,4 +588,29 @@ iframe {
 main {
   /* This section calls the slideInFromLeft animation we defined above */
   animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+/* Final mobile overrides to ensure they take precedence over later desktop rules */
+@media (max-width: 768px) {
+  body #experience-timeline .timeline-block .event {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-left,
+  .logo-right {
+    position: static !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+  body #experience-timeline .timeline-block .event .logo-left,
+  body #experience-timeline .timeline-block .event .logo-right {
+    order: 0;
+    align-self: center;
+    margin-bottom: 0.75rem;
+  }
+  body #experience-timeline .timeline-block .event .event-body {
+    order: 1;
+  }
 }

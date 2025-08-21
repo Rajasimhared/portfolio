@@ -7,7 +7,7 @@ function introTemplate() {
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
-        <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+        <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <!--
             Icon when menu is closed.
@@ -38,6 +38,8 @@ function introTemplate() {
             <a href="#experience-timeline" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Work Experience</a>
 
             <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+            
+            <a href="#achievements" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
 
             <a href="#education" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Education</a>
 
@@ -63,13 +65,15 @@ function introTemplate() {
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
+  <div class="sm:hidden hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pt-2 pb-3">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a href="#experience-timeline" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Work Experience</a>
 
       <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
 
+      <a href="#achievements" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Achievements</a>
+      
       <a href="#education" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Education</a>
 
       <a href="#projects" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
@@ -87,6 +91,41 @@ class NavBar extends HTMLElement {
 
   connectedCallback() {
     this.appendChild(introTemplate());
+    const btn = this.querySelector('#mobile-menu-button');
+    const menu = this.querySelector('#mobile-menu');
+    if (btn && menu) {
+      const icons = btn.querySelectorAll('svg');
+      const openIcon = icons[0];
+      const closeIcon = icons[1];
+
+      const toggleMenu = () => {
+        menu.classList.toggle('hidden');
+        if (openIcon && closeIcon) {
+          openIcon.classList.toggle('hidden');
+          openIcon.classList.toggle('block');
+          closeIcon.classList.toggle('hidden');
+          closeIcon.classList.toggle('block');
+        }
+      };
+
+      btn.addEventListener('click', toggleMenu);
+
+      // Auto-close mobile menu when a link is tapped
+      const menuLinks = menu.querySelectorAll('a');
+      menuLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          if (!menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+            if (openIcon && closeIcon) {
+              openIcon.classList.remove('hidden');
+              openIcon.classList.add('block');
+              closeIcon.classList.add('hidden');
+              closeIcon.classList.remove('block');
+            }
+          }
+        });
+      });
+    }
   }
 }
 

@@ -1,6 +1,10 @@
 .profile-pic {
   border-radius: 50%;
   margin-bottom: 2rem;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center 10%;
 }
 
 p {
@@ -12,4 +16,15 @@ p {
 .typed-cursor {
   font-size: 1.5rem;
   padding: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .profile-pic {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .intro-title {
+    font-size: 2.25rem !important;
+  }
 }
