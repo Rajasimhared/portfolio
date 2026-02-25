@@ -7,25 +7,8 @@ function introTemplate() {
         <main class="container ">
       <c-experience-section></c-experience-section>
       <br />
-      <!-- <section id="certifications">
-        <h2>
-          <i
-            class="fa fa-certificate"
-            style="font-size: 32px; padding-right: 1rem"
-          ></i
-          >Certifications
-        </h2>
-        <div class="wrapper-container">
-          <div class="journal-block">
-            <ul style="font-size: large">
-              <li>Omnistudio Platform Developer</li>
-              <li>Javascript Developer I</li>
-              <li>Trailhead Ranger</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <hr /> -->
+      <c-certifications></c-certifications>
+      <br />
       <c-skills></c-skills>
       <br />
       <c-achievements></c-achievements>

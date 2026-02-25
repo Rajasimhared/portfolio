@@ -22,9 +22,9 @@ function introTemplate() {
       <h1 class="intro-title">I'm Rajasimha Reddy</h1>
       <br>
       <p class="text-justify">
-A frontend engineer passionate about building beautiful, performant, and accessible web applications. Over the past 7+ years, I’ve worked across startups and enterprises, leading UI development, optimizing apps for speed, and designing reusable component libraries. I love solving hard frontend problems, mentoring teams, and turning ideas into products that users love to use.     
-      </p>
-      </div>
+Lead Salesforce Developer at Salesforce with nearly eight years of experience specializing in complex telecom integrations and scalable solution design. Experienced in driving technical strategy and partnering with cross-functional teams to deliver robust, industry-aligned solutions.
+<br><br>
+Skilled at translating business requirements into scalable architectures and high-performance applications, with strong front-end development experience building responsive, scalable apps that enhance user experience and efficiency.</div>
        </div>
     `;
   return coreTemplate.content;
@@ -38,7 +38,7 @@ class MyIntro extends HTMLElement {
   connectedCallback() {
     this.appendChild(introTemplate());
     var options = {
-      strings: ["Frontend Engineer", "Web Technophile", "Problem Solver"],
+      strings: ["Lead Salesforce Developer", "OmniStudio & CPQ Expert", "Frontend Developer", "Problem Solver"],
       typeSpeed: 100,
       smartBackspace: true,
       loop: true,

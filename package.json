@@ -17,6 +17,5 @@
   "dependencies": {
     "three": "^0.148.0",
     "typed.js": "^2.0.12"
-  },
-  "packageManager": "yarn@4.9.2"
+  }
 }

@@ -151,7 +151,7 @@ class LandingPage extends HTMLElement {
         positions[i + 1],
         positions[i + 2]
       );
-      positions[i + 2] = v.z + 1.5;
+      positions[i + 2] = v.z + 0.5;
       if (v.z > 300) {
         positions[i + 2] = -200;
       }

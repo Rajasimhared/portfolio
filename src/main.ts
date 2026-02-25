@@ -7,6 +7,7 @@ import "./components/LandingPage/landingPage.js";
 import "./components/MainContent/mainContent.js";
 import "./components/NavBar/navBar.js";
 import "./components/Achievements.js";
+import "./components/Certifications.js";
 import "./style.css";
 
 // Used to load any defined custom html element. Takes two params name, container to query upon

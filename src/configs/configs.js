@@ -45,27 +45,32 @@ const projects = [
 
 const experiences = [
   {
-    title: "Senior Technical Consultant - UI",
+    title: "Senior Technical Consultant",
     company: "Salesforce, Inc.",
-    duration: "Since January 2020",
+    duration: "January 2020 - Present",
     workDescription: `
     <ul>
-        <li><strong>Led UI development</strong> for multiple enterprise projects, delivering end-to-end customer journeys with React, OmniStudio, and Salesforce Digital Commerce APIs.</li>
+        <li><strong>Led end-to-end Salesforce implementations</strong> (Experience Cloud, OmniStudio, EPC, CPQ, Digital Commerce, Slack-SFDC integrations) driving digital transformation for telecom and enterprise clients.</li>
 
-        <li>Optimized Webpack bundles to reduce build time from <strong>120s to 20s (6x improvement)</strong>, significantly boosting developer productivity across multiple projects using the shared boilerplate.</li>
+        <li>Designed and delivered custom <strong>Apex, LWC, and OmniStudio solutions</strong>, including high-performance CPQ APIs that outperformed OOTB APIs by 3x.</li>
 
-        <li>Developed <strong>reusable UI components</strong> and resolved critical accessibility issues, ensuring high-quality, scalable, and inclusive applications.</li>
+        <li>Conducted code reviews, enforced best practices, and assured performance using <strong>JMeter and Blazemeter</strong> to ensure scalability and maintainability.</li>
 
-        <li>Developed a <strong>React Chrome extension</strong> for validating best practices in an internal framework, adopted by 500+ developers across the organization.</li>
+        <li><strong>Mentored and coached</strong> junior developers through workshops, peer reviews, and technical guidance, accelerating ramp-up and delivery quality.</li>
 
-        <li>Partnered with Amazon Engineering to build a <strong>Partner Portal UI</strong> integrated with Slack + Salesforce, cutting deal closure time from weeks to minutes.</li>
+        <li>Architected and implemented complex integrations (TMF APIs, DigiCom APIs, Slack-SFDC, Node.js middleware) ensuring seamless interoperability with external systems.</li>
         
-        <li>Collaborated with <strong>cross-functional teams & customers</strong> through demos, POCs, and workshops, boosting customer confidence and securing multi-million-dollar deals.</li>
+        <li>Collaborated with cross-functional stakeholders to translate business requirements into scalable technical designs, enabling faster MVP delivery and adoption.</li>
 
-        <li>Contributed to a <strong>cross-platform mobile app</strong> using React Native and TypeScript, integrating Google Fit and Apple Health
-APIs.</li>
+        <li>Established and optimized DevOps pipelines (Heroku, GitLab CI/CD) and contributed to release adoption, improving deployment speed and reducing production issues.</li>
 
-        <li><strong>Mentored and enabled teams</strong> by conducting workshops, code reviews, and release adoption initiatives, while also contributing to DevOps strategies and best practices.</li>
+        <li>Delivered <strong>Partner Portal for Amazon</strong> on Salesforce + Slack, reducing deal closure timelines from weeks to minutes through automation and integration.</li>
+
+        <li>Authored and maintained technical documentation, design specifications, and deployment guides to ensure knowledge transfer and smooth handoffs.</li>
+
+        <li>Optimized Webpack bundles to reduce build time from <strong>120s to 20s (6x improvement)</strong>, boosting developer productivity.</li>
+
+        <li>Developed a <strong>React Chrome extension</strong> for validating best practices in an internal framework, adopted by 500+ developers.</li>
         
     </ul>
     `,
@@ -75,7 +80,7 @@ APIs.</li>
   {
     title: "Software Development Engineer",
     company: "Youplus, Inc.",
-    duration: "June 2018 - December 2019",
+    duration: "July 2018 - December 2019",
     workDescription: `
         <ul>
         <li>Built end-to-end portal for customers to order/review videos, theme widgets, and manage thousands of pages efficiently.</li>
@@ -230,16 +235,22 @@ const skills = [
   },
 ];
 
-// Structured skills for the new Skills section UI
+// Structured skills for the new Skills section UI - Salesforce first, then Frontend
 const skillSections = [
   {
-    title: "Frontend Core",
+    title: "Salesforce & Platform",
+    items: [
+      { label: "Core", text: "Apex, SOQL, Visualforce, Lightning Web Components (LWC)" },
+      { label: "OmniStudio & CPQ", text: "OmniStudio, CPQ, Experience Cloud, EPC, Web Components" },
+      { label: "Integrations", text: "REST APIs, TMF APIs, Slack-SFDC, Design Patterns, Code Reviews" }
+    ]
+  },
+  {
+    title: "Frontend Development",
     items: [
       { label: "Languages", text: "JavaScript (ES6+), TypeScript, HTML5, CSS3" },
-      { label: "Frameworks", text: "React, Next.js, Angular" },
-      { label: "UI Systems", text: "Web Components, LWC, Lit, Polymer, Redux, Tailwind, Material UI, AntD, Bootstrap" },
-      { label: "Performance & Testing", text: "Webpack, Vite, Jest, Cypress, React Testing Library" },
-      { label: "Accessibility", text: "ARIA, WCAG Compliance" }
+      { label: "Frameworks", text: "React, Angular, Next.js" },
+      { label: "UI & Testing", text: "Web Components, LWC, Redux, Tailwind, Material UI, Jest, Cypress, React Testing Library" }
     ]
   },
   {
@@ -251,21 +262,35 @@ const skillSections = [
   {
     title: "DevOps & Cloud",
     list: [
-      "GitHub Actions, Vercel, AWS (S3, CloudFront, Lambda, CloudWatch, DynamoDB), Heroku"
+      "GitHub Actions, GitLab CI/CD, Vercel, Heroku, AWS (S3, CloudFront, Lambda, CloudWatch, DynamoDB)"
     ]
   },
   {
-    title: "Other Tools",
+    title: "Testing & Collaboration",
     list: [
-      "JMeter, Postman, Excalidraw, Draw.io, Jira, Confluence"
+      "JMeter, Blazemeter, Postman, Webpack, Vite, Jira, Confluence, Draw.io, Excalidraw, Agile/Scrum"
     ]
   },
   {
-    title: "AI Tools",
+    title: "AI & Emerging Tech",
     list: [
       "ChatGPT, Claude, CursorAI, Gemini, Agentforce, Elements.cloud"
     ]
   }
 ];
 
-export { projects, experiences, educations, skills, skillSections };
+const certifications = [
+  "Salesforce Certified Agentforce Specialist",
+  "Salesforce Certified AI Associate",
+  "Salesforce Certified Experience Cloud Consultant",
+  "Salesforce Certified Omnistudio Developer",
+  "Salesforce Certified Sales Cloud Consultant",
+  "Salesforce Certified JavaScript Developer",
+  "Salesforce Certified Platform Administrator",
+  "Salesforce Certified Platform App Builder",
+  "Salesforce Certified Platform Developer",
+  "Salesforce Certified Platform Sharing and Visibility Architect",
+  "Salesforce Certified Service Cloud Consultant",
+];
+
+export { projects, experiences, educations, skills, skillSections, certifications };
