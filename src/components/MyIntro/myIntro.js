@@ -22,10 +22,12 @@ function introTemplate() {
       <h1 class="intro-title">I'm Rajasimha Reddy</h1>
       <br>
       <p class="text-justify">
-Lead Salesforce Developer at Salesforce with nearly eight years of experience specializing in complex telecom integrations and scalable solution design. Experienced in driving technical strategy and partnering with cross-functional teams to deliver robust, industry-aligned solutions.
-<br><br>
-Skilled at translating business requirements into scalable architectures and high-performance applications, with strong front-end development experience building responsive, scalable apps that enhance user experience and efficiency.</div>
-       </div>
+Lead Salesforce Engineer with nearly 8 years of experience
+delivering complex enterprise implementations. Skilled in
+translating business requirements into scalable architectures
+and reusable frameworks, while driving technical strategy
+and cross-functional collaboration to build high-performance,
+industry-aligned solutions.</div>
     `;
   return coreTemplate.content;
 }
