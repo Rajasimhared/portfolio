@@ -46,33 +46,44 @@ const projects = [
 const experiences = [
   {
     title: "Senior Technical Consultant",
-    company: "Salesforce, Inc.",
-    duration: "January 2020 - Present",
+    company: "Salesforce Inc., Bangalore",
+    duration: "January 2020 – Present",
     workDescription: `
-    <ul>
-        <li><strong>Led end-to-end Salesforce implementations</strong> (Experience Cloud, OmniStudio, EPC, CPQ, Digital Commerce, Slack-SFDC integrations) driving digital transformation for telecom and enterprise clients.</li>
-
-        <li>Designed and delivered custom <strong>Apex, LWC, and OmniStudio solutions</strong>, including high-performance CPQ APIs that outperformed OOTB APIs by 3x.</li>
-
-        <li>Conducted code reviews, enforced best practices, and assured performance using <strong>JMeter and Blazemeter</strong> to ensure scalability and maintainability.</li>
-
-        <li><strong>Mentored and coached</strong> junior developers through workshops, peer reviews, and technical guidance, accelerating ramp-up and delivery quality.</li>
-
-        <li>Architected and implemented complex integrations (TMF APIs, DigiCom APIs, Slack-SFDC, Node.js middleware) ensuring seamless interoperability with external systems.</li>
-        
-        <li>Collaborated with cross-functional stakeholders to translate business requirements into scalable technical designs, enabling faster MVP delivery and adoption.</li>
-
-        <li>Established and optimized DevOps pipelines (Heroku, GitLab CI/CD) and contributed to release adoption, improving deployment speed and reducing production issues.</li>
-
-        <li>Delivered <strong>Partner Portal for Amazon</strong> on Salesforce + Slack, reducing deal closure timelines from weeks to minutes through automation and integration.</li>
-
-        <li>Authored and maintained technical documentation, design specifications, and deployment guides to ensure knowledge transfer and smooth handoffs.</li>
-
-        <li>Optimized Webpack bundles to reduce build time from <strong>120s to 20s (6x improvement)</strong>, boosting developer productivity.</li>
-
-        <li>Developed a <strong>React Chrome extension</strong> for validating best practices in an internal framework, adopted by 500+ developers.</li>
-        
-    </ul>
+    <div class="client-engagements">
+      <div class="engagement-block">
+        <h4 class="engagement-title">Gigaclear (UK) <span class="engagement-dates">Dec 2024 – Current</span></h4>
+        <ul>
+          <li>Delivering scalable agent journeys, customer portal, and headless APIs to enable seamless customer onboarding.</li>
+          <li>Designing and developing custom telecom workflows using LWC and complex Apex frameworks to support scalable, integration-driven customer journeys.</li>
+          <li>Strengthened client confidence through successful delivery, contributing to a <strong>$3.6M engagement expansion</strong>.</li>
+        </ul>
+      </div>
+      <div class="engagement-block">
+        <h4 class="engagement-title">Amazon Web Services (US) <span class="engagement-dates">Apr 2024 – Dec 2024</span></h4>
+        <ul>
+          <li>Designed and delivered a Salesforce-based Partner Portal, reducing deal closure time from weeks to minutes.</li>
+          <li>Implemented Slack–Salesforce integration enabling channel creation from Salesforce Opportunities.</li>
+          <li>Developed a GenAI-powered Slack bot providing real-time responses within channels.</li>
+        </ul>
+      </div>
+      <div class="engagement-block">
+        <h4 class="engagement-title">BT Consumer (UK) <span class="engagement-dates">Jan 2021 – Mar 2024</span></h4>
+        <ul>
+          <li>Delivered telecom solutions using OmniOut, OmniStudio, Digital Commerce APIs, EPC, and CPQ.</li>
+          <li>Engineered custom CPQ APIs achieving <strong>3x performance improvement</strong>.</li>
+          <li>Led EPC catalog publishing to external systems via TMF-compliant APIs.</li>
+          <li>Contributed to DevOps strategy improving deployment efficiency and release stability.</li>
+          <li>Conducted code reviews as part of the assurance team.</li>
+        </ul>
+      </div>
+      <div class="engagement-block">
+        <h4 class="engagement-title">M1 (Singapore) <span class="engagement-dates">Jan 2020 – Dec 2020</span></h4>
+        <ul>
+          <li>Implemented an off-platform SIM plan selection journey using Digital Commerce APIs and Node.js with OAuth 2.0.</li>
+          <li>Optimized Vlocity Web Components, reducing bundle size by <strong>3x</strong> and build time from <strong>120s to 6s</strong>.</li>
+        </ul>
+      </div>
+    </div>
     `,
     logo: asset("salesforce-logo.svg"),
     link: "https://www.salesforce.com/"

@@ -7,3 +7,30 @@
 .event-content {
   color: #000000;
 }
+
+.client-engagements .engagement-block {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.client-engagements .engagement-block:last-child {
+  margin-bottom: 0;
+}
+
+.client-engagements .engagement-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.client-engagements .engagement-dates {
+  font-weight: 400;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.client-engagements .engagement-block ul {
+  margin: 0 0 0 1rem;
+  padding-left: 1rem;
+}
